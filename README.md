@@ -2,6 +2,10 @@
 
 Code accompanying the paper https://www.biorxiv.org/content/10.1101/680454v2
 
+[![DOI](https://zenodo.org/badge/249953636.svg)](https://zenodo.org/badge/latestdoi/249953636)
+
+
+
 ## System Requirements
 
 R (code tested on v 3.4.4)

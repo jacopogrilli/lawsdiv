@@ -6,7 +6,6 @@ require(lamW)
 require(GGally)
 require(ggcorrplot)
 require(pracma)
-require(nleqslv)
 source("./ggplot_mytheme.R")
 
 load( "./dataestimate.Rdata" )

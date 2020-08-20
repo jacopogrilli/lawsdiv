@@ -1,12 +1,11 @@
 rm(list=ls(all=TRUE))
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
-# require(tidyverse)
+require(tidyverse)
 require(ggfortify)
 require(lamW)
 require(GGally)
 require(ggcorrplot)
 require(pracma)
-require(nleqslv)
 source("./ggplot_mytheme.R")
 
 remove_runs = c("ERR1104477", "ERR1101508", "SRR2240575") ## duplicate runs for the same sample
@@ -14,13 +13,13 @@ remove_runs = c("ERR1104477", "ERR1101508", "SRR2240575") ## duplicate runs for 
 
 ### LOAD STATIC DATA
 load( "../Data/crosssecdata.RData" )
-nreads_cutoff <- 10^4
+nreads_cutoff <- 10^1
 count_cutoff <- 0
 
 
 summarydata <- datatax %>% filter(nreads > nreads_cutoff ) %>%  group_by(project_id, classification) %>%
   summarise( n_of_runs = n_distinct(run_id), mean_nreads = mean(nreads)) %>%  ungroup() %>% 
-  as.data.frame() %>%  filter( n_of_runs > 20  ) %>% mutate(idall = paste(project_id, classification))
+  as.data.frame() %>%  filter( n_of_runs > 00  ) %>% mutate(idall = paste(project_id, classification))
 datatax <- datatax %>% filter( paste(project_id, classification) %in% paste(summarydata$project_id,summarydata$classification  )  )
 summarydata
 names <- c("sludge", "lake", "river", "gut2", "sea vents", "glacier", "seawater", "soil", "gut1", "oral1")
